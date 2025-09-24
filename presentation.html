@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evolution of AI Systems: From Direct LLM Calls to MCP</title>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
     <style>
         body {
             background-color: #000000;
@@ -433,17 +433,26 @@ graph TD
         let currentSlide = 1;
         const totalSlides = 8;
 
-        // Simple Mermaid initialization
+        // Simple render-only Mermaid initialization
         function initializeMermaid() {
-            console.log('Initializing Mermaid...');
+            console.log('Initializing Mermaid for rendering...');
             if (typeof mermaid !== 'undefined') {
+                // Configure for dark theme rendering only
                 mermaid.initialize({ 
                     startOnLoad: true,
-                    theme: 'dark'
+                    theme: 'dark',
+                    themeVariables: {
+                        darkMode: true,
+                        background: '#000000',
+                        primaryColor: '#0078D4',
+                        primaryTextColor: '#ffffff',
+                        primaryBorderColor: '#005A9E',
+                        lineColor: '#A6A6A6'
+                    }
                 });
-                console.log('Mermaid initialized');
+                console.log('Mermaid configured for rendering');
             } else {
-                console.error('Mermaid not loaded');
+                console.error('Mermaid library not loaded');
             }
         }
 
@@ -509,9 +518,9 @@ graph TD
             }
         });
 
-        // Initialize when page loads
-        window.addEventListener('load', function() {
-            console.log('Page loaded');
+        // Initialize when page loads - render only
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing Mermaid...');
             initializeMermaid();
             showSlide(1);
         });
