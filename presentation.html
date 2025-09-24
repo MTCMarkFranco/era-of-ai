@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolution of AI Systems: From Direct LLM Calls to MCP</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            page-break-after: always;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        
+        .slide h1 {
+            color: #0078D4;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .slide h2 {
+            color: #FFB900;
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 40px;
+        }
+        
+        .mermaid {
+            background-color: transparent !important;
+        }
+        
+        .characteristics {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 4px solid #0078D4;
+            max-width: 800px;
+        }
+        
+        .characteristics h3 {
+            color: #0078D4;
+            margin-top: 0;
+        }
+        
+        .characteristics ul {
+            color: #e0e0e0;
+        }
+        
+        .characteristics li {
+            margin: 8px 0;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-button {
+            background-color: #0078D4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .nav-button:hover {
+            background-color: #106EBE;
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #0078D4;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px;
+            }
+            
+            .slide h1 {
+                font-size: 1.8em;
+            }
+            
+            .slide h2 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter" id="slideCounter">Slide 1 of 7</div>
+    
+    <div class="navigation">
+        <button class="nav-button" onclick="previousSlide()">Previous</button>
+        <button class="nav-button" onclick="nextSlide()">Next</button>
+        <button class="nav-button" onclick="toggleFullscreen()">Fullscreen</button>
+    </div>
+
+    <div class="slide" id="slide1">
+        <h1>Evolution of AI Systems</h1>
+        <h2>From Direct LLM Calls to Model Context Protocol (MCP)</h2>
+        
+        <div class="characteristics">
+            <h3>Presentation Overview</h3>
+            <ul>
+                <li>7 stages of AI system evolution</li>
+                <li>Focus on engineering principles</li>
+                <li>Progression from monolithic to modular architectures</li>
+                <li>Culmination in MCP protocol design</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide" id="slide2" style="display: none;">
+        <h1>Slide 1: Direct LLM Call in Chatbot Experience</h1>
+        <h2>Basic LLM Integration - The Starting Point</h2>
+        
+        <div class="mermaid">
+            %%{init: {'theme':'dark', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px', 'primaryColor': '#0078D4', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#005A9E', 'lineColor': '#A6A6A6'}}}%%
+            graph TD
+                A[User Input] --> B[Application Layer]
+                B --> C[LLM API Call]
+                C --> D[Language Model]
+                D --> E[Generated Response]
+                E --> F[User Interface]
+                
+                style D fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+                style C fill:#40E0D0,stroke:#106EBE,stroke-width:2px,color:#000000
+                
+                linkStyle default stroke:#A6A6A6,stroke-width:2px
+        </div>
+        
+        <div class="characteristics">
+            <h3>Key Characteristics:</h3>
+            <ul>
+                <li>Simple request-response pattern</li>
+                <li>Direct API integration with LLM providers</li>
+                <li>Limited context awareness</li>
+                <li>No external data integration</li>
+                <li>Responses based solely on training data</li>
+                <li>High risk of hallucination and outdated information</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide" id="slide3" style="display: none;">
+        <h1>Slide 2: RAG Pattern with Skills and Grounding</h1>
+        <h2>Enhanced Context Through Retrieval-Augmented Generation</h2>
+        
+        <div class="mermaid">
+            %%{init: {'theme':'dark', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px', 'primaryColor': '#0078D4', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#005A9E', 'lineColor': '#A6A6A6'}}}%%
+            graph TD
+                A[User Input] --> B[Application Layer]
+                B --> C[Query Processing]
+                C --> D[Vector Database/Search]
+                C --> E[Python Skills/Functions]
+                D --> F[Relevant Documents]
+                E --> G[External Data Sources]
+                F --> H[Context Assembly]
+                G --> H
+                H --> I[Enhanced Prompt]
+                I --> J[Language Model]
+                J --> K[Grounded Response]
+                K --> L[User Interface]
+                
+                style J fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+                style D fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+                style E fill:#107C10,stroke:#0E6B0E,stroke-width:2px,color:#FFFFFF
+                style H fill:#FFB900,stroke:#E09200,stroke-width:2px,color:#000000
+                
+                linkStyle default stroke:#A6A6A6,stroke-width:2px
+        </div>
+        
+        <div class="characteristics">
+            <h3>Key Characteristics:</h3>
+            <ul>
+                <li>Retrieval-Augmented Generation (RAG) implementation</li>
+                <li>Python-based skills for data retrieval</li>
+                <li>Context grounding with external data sources</li>
+                <li>Vector embeddings for semantic search</li>
+                <li>Reduced hallucination through factual grounding</li>
+                <li>Dynamic knowledge integration</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide" id="slide4" style="display: none;">
+        <h1>Slide 3: Orchestration with Memory and Auto-Function Calling</h1>
+        <h2>Intelligent Orchestration and Planning</h2>
+        
+        <div class="mermaid">
+            %%{init: {'theme':'dark', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '14px', 'primaryColor': '#0078D4', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#005A9E', 'lineColor': '#A6A6A6'}}}%%
+            graph TD
+                A[User Input] --> B[Orchestration Layer]
+                B --> C[Memory System]
+                B --> D[Planning Engine]
+                D --> E[Function Registry]
+                E --> F[Auto Function Selection]
+                F --> G[Skills Execution]
+                G --> H[RAG System]
+                G --> I[External APIs]
+                G --> J[Data Sources]
+                C --> K[Conversation History]
+                H --> L[Context Assembly]
+                I --> L
+                J --> L
+                K --> L
+                L --> M[Enhanced Prompt]
+                M --> N[Language Model]
+                N --> O[Planned Response]
+                O --> P[Memory Update]
+                O --> Q[User Interface]
+                
+                style N fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+                style D fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+                style C fill:#FFB900,stroke:#E09200,stroke-width:2px,color:#000000
+                style F fill:#D83B01,stroke:#B92E00,stroke-width:2px,color:#FFFFFF
+                
+                linkStyle default stroke:#A6A6A6,stroke-width:2px
+        </div>
+        
+        <div class="characteristics">
+            <h3>Key Characteristics:</h3>
+            <ul>
+                <li>LLM-driven planning and decision making</li>
+                <li>Automated function calling based on context</li>
+                <li>Persistent memory across conversations</li>
+                <li>Multi-step reasoning capabilities</li>
+                <li>Dynamic workflow orchestration</li>
+                <li>Self-directed tool selection</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide" id="slide5" style="display: none;">
+        <h1>Slide 4: Genesis of Agentic Design Principles</h1>
+        <h2>Recognizing the Need for Engineering Principles</h2>
+        
+        <div class="mermaid">
+            %%{init: {'theme':'dark', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '14px', 'primaryColor': '#0078D4', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#005A9E', 'lineColor': '#A6A6A6'}}}%%
+            graph TD
+                A[Current State Assessment] --> B[Functional but Limited]
+                B --> C[Scalability Challenges]
+                B --> D[Maintainability Issues]
+                B --> E[Integration Complexity]
+                
+                C --> F[Engineering Principles Gap]
+                D --> F
+                E --> F
+                
+                F --> G[Modular Design Need]
+                F --> H[Scalable Architecture Need]
+                F --> I[Interoperability Need]
+                
+                G --> J[Agentic Design Principles]
+                H --> J
+                I --> J
+                
+                J --> K[Systematic Approach]
+                K --> L[Reliable AI Systems]
+                K --> M[Deterministic Outcomes]
+                K --> N[Enterprise-Grade Solutions]
+                
+                style F fill:#D83B01,stroke:#B92E00,stroke-width:2px,color:#FFFFFF
+                style J fill:#107C10,stroke:#0E6B0E,stroke-width:2px,color:#FFFFFF
+                style L fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+                style M fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+                style N fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+                
+                linkStyle default stroke:#A6A6A6,stroke-width:2px
+        </div>
+        
+        <div class="characteristics">
+            <h3>Key Characteristics:</h3>
+            <ul>
+                <li>Recognition of architectural limitations</li>
+                <li>Need for software engineering principles</li>
+                <li>Focus on <strong>Modular</strong> component design</li>
+                <li>Emphasis on <strong>Scalable</strong> system architecture</li>
+                <li>Requirements for <strong>Interoperable</strong> solutions</li>
+                <li>Transition from functional to systematic approach</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide" id="slide6" style="display: none;">
+        <h1>Slide 5: Base AI System Architecture</h1>
+        <h2>Foundation Layer - Core AI Components</h2>
+        
+        <div class="mermaid">
+            %%{init: {'theme':'dark', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px', 'primaryColor': '#0078D4', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#005A9E', 'lineColor': '#A6A6A6'}}}%%
+            graph TD
+                A[User Input] --> B[LLM Core]
+                B --> C[Tools & Functions]
+                B --> D[Data Sources]
+                B --> E[External APIs]
+                
+                C --> F[Response Generation]
+                D --> F
+                E --> F
+                
+                F --> G[User Output]
+                
+                style B fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+                style C fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+                style D fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+                style E fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+                
+                linkStyle default stroke:#A6A6A6,stroke-width:2px
+        </div>
+        
+        <div class="characteristics">
+            <h3>Key Characteristics:</h3>
+            <ul>
+                <li>Basic AI system components</li>
+                <li>Direct connections between LLM and resources</li>
+                <li>Tightly coupled architecture</li>
+                <li>Foundation for applying engineering principles</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide" id="slide7" style="display: none;">
+        <h1>Slide 6: Adding Agentic Principles Layer</h1>
+        <h2>Foundation + Agentic Design Principles</h2>
+        
+        <div class="mermaid">
+            %%{init: {'theme':'dark', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px', 'primaryColor': '#0078D4', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#005A9E', 'lineColor': '#A6A6A6'}}}%%
+            graph TD
+                A[User Input] --> B[LLM Core]
+                
+                subgraph H[Agentic Components]
+                    C[Tools & Functions]
+                    D[Data Sources]
+                    E[External APIs]
+                end
+                
+                B --> C
+                B --> D
+                B --> E
+                
+                C --> F[Response Generation]
+                D --> F
+                E --> F
+                
+                F --> G[User Output]
+                
+                style B fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+                style C fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+                style D fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+                style E fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+                style H fill:#FFB900,stroke:#E09200,stroke-width:3px,color:#000000
+                
+                linkStyle default stroke:#A6A6A6,stroke-width:2px
+        </div>
+        
+        <div class="characteristics">
+            <h3>Key Characteristics:</h3>
+            <ul>
+                <li>Same foundation with agentic component grouping</li>
+                <li><strong>Modular</strong>: Components organized within agentic boundary</li>
+                <li><strong>Scalable</strong>: Clear separation between core LLM and external systems</li>
+                <li><strong>Interoperable</strong>: Grouped components enable standard interfaces</li>
+                <li>Systematic approach to AI system design</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide" id="slide8" style="display: none;">
+        <h1>Slide 7: Adding MCP Protocol Layer</h1>
+        <h2>Foundation + Agentic Principles + MCP</h2>
+        
+        <div class="mermaid">
+            %%{init: {'theme':'dark', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px', 'primaryColor': '#0078D4', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#005A9E', 'lineColor': '#A6A6A6'}}}%%
+            graph TD
+                A[User Input] --> B[LLM Core]
+                
+                subgraph H[Agentic Components]
+                    I[Router Orchestration]
+                    J[Router Planner]
+                    K[Router Memory]
+                end
+                
+                subgraph L[MCP Server]
+                    C[Tools & Functions]
+                    D[Data Sources]
+                    E[External APIs]
+                end
+                
+                B --> H
+                H --> L
+                
+                C --> F[Response Generation]
+                D --> F
+                E --> F
+                
+                F --> G[User Output]
+                
+                style B fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+                style C fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+                style D fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+                style E fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+                style H fill:#FFB900,stroke:#E09200,stroke-width:3px,color:#000000
+                style I fill:#F7630C,stroke:#D13438,stroke-width:2px,color:#FFFFFF
+                style J fill:#F7630C,stroke:#D13438,stroke-width:2px,color:#FFFFFF
+                style K fill:#F7630C,stroke:#D13438,stroke-width:2px,color:#FFFFFF
+                style L fill:#107C10,stroke:#0E6B0E,stroke-width:3px,color:#FFFFFF
+                
+                linkStyle default stroke:#A6A6A6,stroke-width:2px
+        </div>
+        
+        <div class="characteristics">
+            <h3>Key Characteristics:</h3>
+            <ul>
+                <li><strong>MCP Server</strong>: Protocol-based external system management</li>
+                <li><strong>Agentic Components</strong>: Router-based orchestration, planning, and memory</li>
+                <li><strong>Router Orchestration</strong>: Manages workflow coordination</li>
+                <li><strong>Router Planner</strong>: Handles strategic decision making</li>
+                <li><strong>Router Memory</strong>: Maintains context and state</li>
+                <li>Complete separation between agent reasoning and external resources</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 8;
+
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                fontFamily: 'Segoe UI, Arial, sans-serif',
+                fontSize: '16px',
+                primaryColor: '#0078D4',
+                primaryTextColor: '#ffffff',
+                primaryBorderColor: '#005A9E',
+                lineColor: '#A6A6A6',
+                background: '#000000'
+            }
+        });
+
+        function showSlide(n) {
+            // Hide all slides
+            for (let i = 1; i <= totalSlides; i++) {
+                document.getElementById(`slide${i}`).style.display = 'none';
+            }
+            
+            // Show current slide
+            document.getElementById(`slide${n}`).style.display = 'flex';
+            
+            // Update counter
+            document.getElementById('slideCounter').textContent = `Slide ${n} of ${totalSlides}`;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            switch(e.key) {
+                case 'ArrowRight':
+                case ' ':
+                case 'PageDown':
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                case 'PageUp':
+                    previousSlide();
+                    break;
+                case 'Home':
+                    currentSlide = 1;
+                    showSlide(currentSlide);
+                    break;
+                case 'End':
+                    currentSlide = totalSlides;
+                    showSlide(currentSlide);
+                    break;
+                case 'F11':
+                    e.preventDefault();
+                    toggleFullscreen();
+                    break;
+            }
+        });
+
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>
