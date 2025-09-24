@@ -5,6 +5,7 @@
 **Title: Basic LLM Integration - The Starting Point**
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px'}}}%%
 graph TD
     A[User Input] --> B[Application Layer]
     B --> C[LLM API Call]
@@ -12,8 +13,10 @@ graph TD
     D --> E[Generated Response]
     E --> F[User Interface]
     
-    style D fill:#ff9999
-    style C fill:#ffcc99
+    style D fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+    style C fill:#40E0D0,stroke:#106EBE,stroke-width:2px,color:#000000
+    
+    linkStyle default stroke:#A6A6A6,stroke-width:2px
 ```
 
 **Key Characteristics:**
@@ -31,6 +34,7 @@ graph TD
 **Title: Enhanced Context Through Retrieval-Augmented Generation**
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px'}}}%%
 graph TD
     A[User Input] --> B[Application Layer]
     B --> C[Query Processing]
@@ -45,10 +49,12 @@ graph TD
     J --> K[Grounded Response]
     K --> L[User Interface]
     
-    style J fill:#ff9999
-    style D fill:#99ccff
-    style E fill:#99ff99
-    style H fill:#ffcc99
+    style J fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+    style D fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+    style E fill:#107C10,stroke:#0E6B0E,stroke-width:2px,color:#FFFFFF
+    style H fill:#FFB900,stroke:#E09200,stroke-width:2px,color:#000000
+    
+    linkStyle default stroke:#A6A6A6,stroke-width:2px
 ```
 
 **Key Characteristics:**
@@ -66,6 +72,7 @@ graph TD
 **Title: Intelligent Orchestration and Planning**
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px'}}}%%
 graph TD
     A[User Input] --> B[Orchestration Layer]
     B --> C[Memory System]
@@ -87,10 +94,12 @@ graph TD
     O --> P[Memory Update]
     O --> Q[User Interface]
     
-    style N fill:#ff9999
-    style D fill:#cc99ff
-    style C fill:#ffff99
-    style F fill:#ff99cc
+    style N fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+    style D fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+    style C fill:#FFB900,stroke:#E09200,stroke-width:2px,color:#000000
+    style F fill:#D83B01,stroke:#B92E00,stroke-width:2px,color:#FFFFFF
+    
+    linkStyle default stroke:#A6A6A6,stroke-width:2px
 ```
 
 **Key Characteristics:**
@@ -108,6 +117,7 @@ graph TD
 **Title: Recognizing the Need for Engineering Principles**
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px'}}}%%
 graph TD
     A[Current State Assessment] --> B[Functional but Limited]
     B --> C[Scalability Challenges]
@@ -131,11 +141,13 @@ graph TD
     K --> M[Deterministic Outcomes]
     K --> N[Enterprise-Grade Solutions]
     
-    style F fill:#ff9999
-    style J fill:#99ff99
-    style L fill:#99ccff
-    style M fill:#99ccff
-    style N fill:#99ccff
+    style F fill:#D83B01,stroke:#B92E00,stroke-width:2px,color:#FFFFFF
+    style J fill:#107C10,stroke:#0E6B0E,stroke-width:2px,color:#FFFFFF
+    style L fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+    style M fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+    style N fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+    
+    linkStyle default stroke:#A6A6A6,stroke-width:2px
 ```
 
 **Key Characteristics:**
@@ -153,6 +165,7 @@ graph TD
 **Title: Foundation Layer - Core AI Components**
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px'}}}%%
 graph TD
     A[User Input] --> B[LLM Core]
     B --> C[Tools & Functions]
@@ -165,10 +178,12 @@ graph TD
     
     F --> G[User Output]
     
-    style B fill:#ff9999
-    style C fill:#99ccff
-    style D fill:#99ccff
-    style E fill:#99ccff
+    style B fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+    style C fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+    style D fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+    style E fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+    
+    linkStyle default stroke:#A6A6A6,stroke-width:2px
 ```
 
 **Key Characteristics:**
@@ -184,6 +199,7 @@ graph TD
 **Title: Foundation + Agentic Design Principles**
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px'}}}%%
 graph TD
     A[User Input] --> B[LLM Core]
     
@@ -203,11 +219,13 @@ graph TD
     
     F --> G[User Output]
     
-    style B fill:#ff9999
-    style C fill:#99ccff
-    style D fill:#99ccff
-    style E fill:#99ccff
-    style H fill:#ff9900
+    style B fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+    style C fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+    style D fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+    style E fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+    style H fill:#FFB900,stroke:#E09200,stroke-width:3px,color:#000000
+    
+    linkStyle default stroke:#A6A6A6,stroke-width:2px
 ```
 
 **Key Characteristics:**
@@ -224,6 +242,7 @@ graph TD
 **Title: Foundation + Agentic Principles + MCP**
 
 ```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'fontFamily': 'Segoe UI, Arial, sans-serif', 'fontSize': '16px'}}}%%
 graph TD
     A[User Input] --> B[LLM Core]
     
@@ -248,15 +267,17 @@ graph TD
     
     F --> G[User Output]
     
-    style B fill:#ff9999
-    style C fill:#99ccff
-    style D fill:#99ccff
-    style E fill:#99ccff
-    style H fill:#ff9900
-    style I fill:#ffcc99
-    style J fill:#ffcc99
-    style K fill:#ffcc99
-    style L fill:#cc99ff
+    style B fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+    style C fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+    style D fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+    style E fill:#8764B8,stroke:#6B46C1,stroke-width:2px,color:#FFFFFF
+    style H fill:#FFB900,stroke:#E09200,stroke-width:3px,color:#000000
+    style I fill:#F7630C,stroke:#D13438,stroke-width:2px,color:#FFFFFF
+    style J fill:#F7630C,stroke:#D13438,stroke-width:2px,color:#FFFFFF
+    style K fill:#F7630C,stroke:#D13438,stroke-width:2px,color:#FFFFFF
+    style L fill:#107C10,stroke:#0E6B0E,stroke-width:3px,color:#FFFFFF
+    
+    linkStyle default stroke:#A6A6A6,stroke-width:2px
 ```
 
 **Key Characteristics:**
